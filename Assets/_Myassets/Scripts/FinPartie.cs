@@ -9,6 +9,9 @@ public class FinPartie : MonoBehaviour
     private bool _finPartie = false;
     private GestionJeu _gestionJeu;
     private Player _player;
+    private float _tempsTotal = 0;
+    private float _accrochages = 0;
+    private float _pointage = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +51,7 @@ public class FinPartie : MonoBehaviour
                 Debug.Log("Temps total niveau 3 : " + tempsTotalniv3.ToString("f2") + " secondes");
 
                 Debug.Log("Le temps total pour les trois niveau est de : " + (tempsTotalniv1 + tempsTotalniv2 + tempsTotalniv3).ToString("f2") + " secondes");
-
+                _tempsTotal = tempsTotalniv1 + tempsTotalniv2 + tempsTotalniv3;
         
                 _player.finPartieJoueur();  // Appeler la m�thode publique dans Player pour d�sactiver le joueur
             }

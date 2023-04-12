@@ -13,7 +13,10 @@ public class GestionJeu : MonoBehaviour
     private float _tempsNiveau2 = 0.0f;  // Attribut qui conserve le temps pour le niveau 2
     private int _accrochageNiveau3 = 0;  // Attribut qui conserve le nombre d'accrochage pour le niveau 3
     private float _tempsNiveau3 = 0.0f;  // Attribut qui conserve le temps pour le niveau 3
-
+    private float _tempsDepart = 0;
+    private float _tempsFinal = 0;
+    private float _accrochagesFinal = 0;
+    
     // ***** Méthodes privées *****
     private void Awake()
     {
@@ -34,6 +37,7 @@ public class GestionJeu : MonoBehaviour
     private void Start()
     {
         InstructionsDepart();  // Affiche les instructions de départ
+        _tempsDepart = Time.time;
     }
 
     /*
@@ -116,5 +120,22 @@ public class GestionJeu : MonoBehaviour
     public int GetAccrochagesNiv3()
     {
         return _accrochageNiveau3;
+    }
+
+        public float GetTempsDepart()
+    {
+        return _tempsDepart;
+    }
+
+    public float GetTempsFinal()
+    {
+        _tempsFinal = _tempsNiveau1 + _tempsNiveau2 + _tempsNiveau3;
+        return _tempsFinal;
+    }
+    
+    public float GetAccrochagesFinal()
+    {
+        _accrochagesFinal = _accrochageNiveau1 + _accrochageNiveau2 + _accrochageNiveau3;
+        return _accrochagesFinal;
     }
 }
